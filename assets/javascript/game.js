@@ -13,7 +13,7 @@ console.log(computerChoice);
 
 function reset(){ // this code showed up twice so I'm saving the space by making it a function
     guessesLeft = 9; //this resets the guess counter
-    guessedLetters.length = 0;//changed this to be length0 to eliminate an error
+    guessedLetters = [];//changed this to be length0 to eliminate an error
 }
 
 //Game Program
@@ -21,24 +21,27 @@ function reset(){ // this code showed up twice so I'm saving the space by making
 //Listener to register guesses
 document.onkeyup = function(event) { //runs the game on key up
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); //storing userGuess as a lower case to compare to computerChoice later
-    
     guessedLetters.push(userGuess); //displaying to user the letters they guessed
     guessesLeft--; //everytime the user guesses the counter subtracts 1
-
-//Game Win Condition
+    
+    //This code requires the input to be a letter of the alphabet
+    if (event.keyCode < 65 || event.keyCode > 90) {
+        alert("Invalid Entry");
+    };
+    //Game Win Condition
     if (userGuess == computerChoice){
         wins++; // You win!
         alert("You must be psychic! Congratulations on guessing correctly. You've won this round!");
         reset(); //runs repeating function instead of repeating steps
     }
-//Game Loss Condition
+    //Game Loss Condition
     else if (guessesLeft == 0){  //the game's true loss condition, running out of chances
         losses++; //You lose!
         alert("You've chosen...poorly. You've lost this round. Try again!")
         reset(); //runs above function instead of repeating steps
     }
 
-//Incorrect guess with time still on the clock
+    //Incorrect guess with time still on the clock
     else if (userGuess !== computerChoice){
         guessesLeft--; //Subtracting a guess, and doing nothing else
     
