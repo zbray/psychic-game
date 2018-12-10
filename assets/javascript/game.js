@@ -7,17 +7,19 @@ var guessesLeft = 9;
 var guessedLetters = [];
 
 //Alphabet, playing pieces for the user and computer
-var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m","n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 //Make the computer make a choice at random from alphabet and consolog.log its choice
 var randomLetter = Math.floor(Math.random() * alphabet.length);
 var computerChoice = alphabet[randomLetter];
-
 console.log(computerChoice);
+
+//Running the game program
 
 //Listener to register guesses
 document.onkeyup = function(event) {
-    var userGuess = event.key;
+    var userGuess = String.fromCharCode(event.keycode).toLowerCase();
+    guessedLetters.push(userGuess);
 }
 
 
@@ -27,7 +29,8 @@ document.onkeyup = function(event) {
 //Game Win/Loss Condition
 
 if (userGuess === computerChoice){
-    wins++;
+    document.getElementById("wins").innerHTML = wins++;
+    )
 }
     
 
