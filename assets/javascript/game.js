@@ -13,7 +13,7 @@ console.log(computerChoice);
 
 function reset(){ // this code showed up twice so I'm saving the space by making it a function
     guessesLeft = 9; //this resets the guess counter
-    guessedLetters = ""; //this removes the displayed guesses from the previous round
+    guessedLetters.length = 0;//changed this to be length0 to eliminate an error
 }
 
 //Game Program
@@ -37,16 +37,18 @@ document.onkeyup = function(event) { //runs the game on key up
         alert("You've chosen...poorly. You've lost this round. Try again!")
         reset(); //runs above function instead of repeating steps
     }
+
 //Incorrect guess with time still on the clock
     else if (userGuess !== computerChoice){
         guessesLeft--; //Subtracting a guess, and doing nothing else
+    
     }
 
 //Game Display
 document.querySelector('#wins').innerHTML = "Wins: " + wins;
 document.querySelector('#losses').innerHTML = "Losses: " + losses;
 document.querySelector('#guessesLeft').innerHTML = "Guesses Left: " + guessesLeft;
-document.querySelector('#guessedLetters').innerHTML = "Your Guesses so far: " + guessedLetters.join(', ');
+document.querySelector('#guessedLetters').textContent = "Your Guesses so far: " + guessedLetters.join(", ");
 
 
 
