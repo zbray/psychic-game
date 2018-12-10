@@ -20,7 +20,8 @@ function reset(){ // this code showed up twice so I'm saving the space by making
 
 //Listener to register guesses
 document.onkeyup = function(event) { //runs the game on key up
-    var userGuess = event.key; //storing userGuess as a lower case to compare to computerChoice later
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); //storing userGuess as a lower case to compare to computerChoice later
+    
     guessedLetters.push(userGuess); //displaying to user the letters they guessed
     guessesLeft--; //everytime the user guesses the counter subtracts 1
 
