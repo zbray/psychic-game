@@ -11,9 +11,11 @@ var computerChoice = alphabet[randomLetter];
 console.log(computerChoice);
 
 
-function reset(){ // this code showed up twice so I'm saving the space by making it a function
+var reset = function(){ // this code showed up twice so I'm saving the space by making it a function
     guessesLeft = 9; //this resets the guess counter
     guessedLetters = [];//changed this to be length0 to eliminate an error
+    var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+    console.log(computerChoice);
 }
 
 //Game Program
@@ -33,6 +35,7 @@ document.onkeyup = function(event) { //runs the game on key up
         wins++; // You win!
         alert("You must be psychic! Congratulations on guessing correctly. You've won this round!");
         reset(); //runs repeating function instead of repeating steps
+    
     }
     //Game Loss Condition
     else if (guessesLeft == 0){  //the game's true loss condition, running out of chances
@@ -41,11 +44,11 @@ document.onkeyup = function(event) { //runs the game on key up
         reset(); //runs above function instead of repeating steps
     }
 
-    //Incorrect guess with time still on the clock
-    else if (userGuess !== computerChoice){
-        guessesLeft--; //Subtracting a guess, and doing nothing else
+    // //Incorrect guess with time still on the clock
+    // else if (userGuess !== computerChoice){
+    //     guessesLeft--; //Subtracting a guess, and doing nothing else
     
-    }
+    // }
 
 //Game Display
 document.querySelector('#wins').innerHTML = "Wins: " + wins;
