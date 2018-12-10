@@ -20,19 +20,34 @@ function reset(){ // this code showed up twice so I'm saving the space by making
 
 //Listener to register guesses
 document.onkeyup = function(event) { //runs the game on key up
-    var userGuess = String.fromCharCode(event.keycode).toLowerCase(); //storing userGuess as a lower case to compare to computerChoice later
+    var userGuess = event.key; //storing userGuess as a lower case to compare to computerChoice later
     guessedLetters.push(userGuess); //displaying to user the letters they guessed
     guessesLeft--; //everytime the user guesses the counter subtracts 1
 
 //Game Win Condition
     if (userGuess == computerChoice){
-        wins++;
+        wins++; // You win!
         alert("You must be psychic! Congratulations on guessing correctly. You've won this round!");
-        reset();
-}
-    
+        reset(); //runs repeating function instead of repeating steps
+    }
+//Game Loss Condition
+    else if (guessesLeft == 0){  //the game's true loss condition, running out of chances
+        losses++; //You lose!
+        alert("You've chosen...poorly. You've lost this round. Try again!")
+        reset(); //runs above function instead of repeating steps
+    }
+//Incorrect guess with time still on the clock
+    else if (userGuess !== computerChoice){
+        guessesLeft--; //Subtracting a guess, and doing nothing else
+    }
 
-if (userGuess === !computerChoice){
-    ;
-}
-}
+//Game Display
+document.querySelector('#wins').innerHTML = "Wins: " + wins;
+document.querySelector('#losses').innerHTML = "Losses: " + losses;
+document.querySelector('#guessesLeft').innerHTML = "Guesses Left: " + guessesLeft;
+document.querySelector('#guessedLetters').innerHTML = "Your Guesses so far: " + guessedLetters.join(', ');
+
+
+
+
+};
