@@ -14,7 +14,7 @@ console.log(computerChoice);
 var reset = function(){ // this code showed up twice so I'm saving the space by making it a function
     guessesLeft = 9; //this resets the guess counter
     guessedLetters = [];//changed this to be length0 to eliminate an error
-    var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+    computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
     console.log(computerChoice);
 }
 
@@ -27,7 +27,7 @@ document.onkeyup = function(event) { //runs the game on key up
     guessesLeft--; //everytime the user guesses the counter subtracts 1
     
     //This code requires the input to be a letter of the alphabet
-    if (event.keyCode < 65 || event.keyCode > 90) {
+    if (guessesLeft === 9 && (event.keyCode < 65 || event.keyCode > 90)) {
         alert("Invalid Entry");
     };
     //Game Win Condition
