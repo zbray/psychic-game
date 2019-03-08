@@ -1,4 +1,4 @@
-# Psychic-Game
+# psychicGame
 
 Greetings! This is a game that takes place within your browser and all you need to play is your keyboard!
 
@@ -11,3 +11,6 @@ Rules: Your guesses must be letters. You must use your keyboard.
 Win condition: If you have a guess to spend you win when you guess the same letter that the computer did. This will add a 1 to your win count and you can play as long as you like.
 
 Loss condition: You lose when you run out of guesses! This will add a 1 to your loss count and you can play as long as you like.
+
+### GitHub Pages Deployment
+https://zzzbray.github.io/psychicGame/
