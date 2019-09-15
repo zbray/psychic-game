@@ -13,4 +13,4 @@ Win condition: If you have a guess to spend you win when you guess the same lett
 Loss condition: You lose when you run out of guesses! This will add a 1 to your loss count and you can play as long as you like.
 
 ### GitHub Pages Deployment
-https://zzzbray.github.io/psychicGame/
+https://zbray.github.io/psychicGame/
